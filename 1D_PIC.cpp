@@ -318,7 +318,7 @@ int main(void){
 	static const double AMU=1.660538921e-27; // kg, atomic mass unit	
 	static const double ME =9.10938215e-31;		// kg, electron mass 
 	
-	static const int NUM_TS=400000;
+	static const int NUM_TS=500000;
 
 	//Domain parameters	
 	int Nx=101;
