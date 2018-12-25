@@ -222,26 +222,26 @@ void load_Specie(Specie *specie, int i)
 		std::cout << filename<< " opened " << std::endl;
 
 		while(!file.eof()){
-			for (int i=0;i<5;i++)
+			for (int i=0;i<7;i++)
 			{
-			 	file>>line_d[i];		
-				//std::cout<< line_d[i]<<std::endl;
+				if(i<5)
+			 		file>>line_d[i];		
+				else 
+					file>>line_i[ i-5 ];
 			}
-			for (int i=0;i<2;i++) file>>line_i[i];
 			specie->charge = line_d[0]; 
 			specie->mass = line_d[1]; 
 			specie->weight = line_d[2];
 			specie->temperature = line_d[3];			
 			specie->density = line_d[4];
-			
 			specie->Np = line_i[0];
 			specie->Np_alloc = line_i[1];
-			
+			std::cout<< " sp_charge = " <<specie->charge << " Np = " << specie->Np << " Np_alloc  " <<  specie->Np_alloc <<std::endl; 	
 		}
 		std::cout << " Specie data read" << std::endl;
-		file.close();
+	//	file.close();
 		}
-
+/*
 	filename="particles_spc_" + std::to_string(i) +".dat";
 	file.open(filename, std::ios::in);
 
@@ -268,6 +268,7 @@ void load_Specie(Specie *specie, int i)
 			
 		file.close();
 	}
+*/
 }
 
 
@@ -318,7 +319,7 @@ int main(void){
 	static const double AMU=1.660538921e-27; // kg, atomic mass unit	
 	static const double ME =9.10938215e-31;		// kg, electron mass 
 	
-	static const int NUM_TS=500000;
+	static const int NUM_TS=100000;
 
 	//Domain parameters	
 	int Nx=101;
