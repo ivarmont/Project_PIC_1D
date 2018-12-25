@@ -1,3 +1,5 @@
 *.o	
 *.dat
 *.swp
+*.o
+main
