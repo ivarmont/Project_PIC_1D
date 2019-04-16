@@ -13,10 +13,6 @@ Domain::Domain(){
 	x_s0=0.0;	
 	x_s1=0.0;
 
-	/*n_e = new double[Nx];
-	n_pi = new double[Nx];
-	n_ni = new double[Nx];
-	*/
 	rho = new double[Nx];
 	phi = new double[Nx];
 	ef = new double[Nx];
@@ -24,7 +20,6 @@ Domain::Domain(){
 	res = new double[Nx];
 	cg_dir = new double[Nx];
 	Acg_dir = new double[Nx];
-
 
 	};
 Domain::Domain( int N_grid_points, double cell_size){
@@ -184,8 +179,7 @@ bool Domain::solve_potential_CG( double phi_0, double phi_N)
 		cg_dir[i]=res[i];	
 	}
 	
-	
-	
+	if(dot_product(res,res, Nx)>0){
 	error=0.0;
 
 	/*solve potential*/
@@ -223,6 +217,9 @@ bool Domain::solve_potential_CG( double phi_0, double phi_N)
 	}
 	std::cout<< "CG solver failed to converge, error= "<< error <<std::endl;
 	return false;	
+	}
+	return true;
+
 }
 
 

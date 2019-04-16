@@ -40,5 +40,9 @@ void Particle::move_particle_LF(double force, double dt){
 	x += vx*dt;
 }
 
+void Particle::velocity_rewind_LF(double force, double dt){
+	vx += force*dt;
+}
+
 
 Particle::~Particle(void){}

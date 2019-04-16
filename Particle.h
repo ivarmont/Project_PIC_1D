@@ -6,7 +6,6 @@ class Particle{
 	private:
 		double x,vx;
 		bool alive;
-		double mass, charge, weight;
 
 	public:
 		Particle();	
@@ -17,6 +16,7 @@ class Particle{
 		void set_is_alive(bool);
 		bool is_alive();
 		void move_particle_LF(double, double);
+		void velocity_rewind_LF(double, double);
 		~Particle();
 	
 };
